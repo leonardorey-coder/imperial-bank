@@ -57,7 +57,7 @@ export default function Modules() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                     {modules.map((module, index) => (
                         <motion.div
                             key={index}
@@ -67,17 +67,17 @@ export default function Modules() {
                             viewport={{ once: true }}
                             className="relative"
                         >
-                            <div className="absolute -top-6 -left-4 text-8xl font-serif font-bold text-[var(--muted-orange)]/[0.1] select-none">
+                            <div className="absolute -top-4 -left-2 md:-top-6 md:-left-4 text-5xl md:text-8xl font-serif font-bold text-[var(--muted-orange)]/20 select-none z-20 pointer-events-none">
                                 0{index + 1}
                             </div>
-                            <div className="relative p-8 rounded-2xl bg-white shadow-lg shadow-[var(--light-grey)]/20 border border-[var(--light-grey)]/30 hover:shadow-xl hover:shadow-[var(--light-grey)]/40 transition-all duration-300">
-                                <h3 className="text-2xl font-serif text-[var(--imperial-blue)] mb-3">{module.title}</h3>
-                                <p className="text-[var(--imperial-blue)]/60 font-display text-lg mb-6">{module.description}</p>
-                                <ul className="space-y-3">
+                            <div className="relative p-4 md:p-8 rounded-2xl bg-white shadow-lg shadow-[var(--light-grey)]/20 border border-[var(--light-grey)]/30 hover:shadow-xl hover:shadow-[var(--light-grey)]/40 transition-all duration-300 z-10">
+                                <h3 className="text-base md:text-2xl font-serif text-[var(--imperial-blue)] mb-2 md:mb-3 whitespace-nowrap">{module.title}</h3>
+                                <p className="text-[var(--imperial-blue)]/60 font-display text-xs md:text-lg mb-4 md:mb-6">{module.description}</p>
+                                <ul className="space-y-2 md:space-y-3">
                                     {module.features.map((feature, fIndex) => (
-                                        <li key={fIndex} className="flex items-start gap-3">
+                                        <li key={fIndex} className="flex items-start gap-2 md:gap-3">
                                             <svg
-                                                className="w-5 h-5 text-[var(--muted-orange)] flex-shrink-0 mt-1"
+                                                className="w-4 h-4 md:w-5 md:h-5 text-[var(--muted-orange)] flex-shrink-0 mt-0.5"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
@@ -89,7 +89,7 @@ export default function Modules() {
                                                     d="M5 13l4 4L19 7"
                                                 />
                                             </svg>
-                                            <span className="text-[var(--imperial-blue)]/80 text-base font-display">{feature}</span>
+                                            <span className="text-[var(--imperial-blue)]/80 text-xs md:text-base font-display">{feature}</span>
                                         </li>
                                     ))}
                                 </ul>

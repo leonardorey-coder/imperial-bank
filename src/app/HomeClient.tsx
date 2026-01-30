@@ -158,11 +158,11 @@ export default function HomeClient() {
                         ].map((item, idx) => (
                             <motion.div
                                 key={idx}
-                                className={`bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-[var(--light-grey)]/30 ${idx === 4 ? 'col-span-2 lg:col-span-1' : ''}`}
+                                className={`bg-white rounded-2xl p-4 md:p-6 shadow-md hover:shadow-xl transition-all border border-[var(--light-grey)]/30 ${idx === 4 ? 'col-span-2 lg:col-span-1' : ''}`}
                                 variants={fadeInUp}
                             >
-                                <item.icon className="w-10 h-10 text-[var(--muted-orange)] mb-6 opacity-80" />
-                                <h3 className="text-lg font-serif text-[var(--imperial-blue)] mb-4 tracking-widest">{item.title}</h3>
+                                <item.icon className="w-8 h-8 md:w-10 md:h-10 text-[var(--muted-orange)] mb-4 md:mb-6 opacity-80" />
+                                <h3 className="text-sm md:text-lg font-serif text-[var(--imperial-blue)] mb-2 md:mb-4 tracking-widest whitespace-nowrap">{item.title}</h3>
                                 <p className="text-xs md:text-sm text-[var(--imperial-black)]/70 leading-relaxed font-light">
                                     {item.text}
                                 </p>
@@ -201,11 +201,11 @@ export default function HomeClient() {
                         ].map((group, idx) => (
                             <motion.div
                                 key={idx}
-                                className="bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-[var(--light-grey)]"
+                                className="bg-white/90 backdrop-blur-md rounded-2xl p-4 md:p-8 border border-[var(--light-grey)]"
                                 variants={fadeInUp}
                             >
-                                <h3 className="text-lg md:text-xl font-serif text-[var(--imperial-blue)] mb-6 border-b border-[var(--light-grey)] pb-4 tracking-wider">{group.title}</h3>
-                                <ul className="space-y-4">
+                                <h3 className="text-sm md:text-xl font-serif text-[var(--imperial-blue)] mb-4 md:mb-6 border-b border-[var(--light-grey)] pb-2 md:pb-4 tracking-wider whitespace-nowrap">{group.title}</h3>
+                                <ul className="space-y-2 md:space-y-4">
                                     {group.items.map((item, i) => (
                                         <li key={i} className="flex items-start gap-3 text-xs md:text-sm text-[var(--imperial-black)]/70">
                                             <div className="w-1.5 h-1.5 rounded-full bg-[var(--muted-orange)] mt-1.5 flex-shrink-0" />
@@ -384,7 +384,7 @@ export default function HomeClient() {
                         viewport={{ once: true }}
                     >
                         <ShieldCheck className="w-16 h-16 text-[var(--muted-orange)] mx-auto mb-6" />
-                        <h2 className="text-3xl md:text-5xl font-serif mb-4">Estructura de Respaldo Híbrido</h2>
+                        <h2 className="text-3xl md:text-5xl font-serif mb-4 !text-white">Estructura de Respaldo Híbrido</h2>
                         <p className="text-white/60 font-light tracking-widest text-sm uppercase">IPAB Protection Framework</p>
                     </motion.div>
 
@@ -395,7 +395,7 @@ export default function HomeClient() {
                             transition={{ duration: 0.3 }}
                         >
                             <TrendingUp className="w-12 h-12 text-[var(--muted-orange)] mb-6 drop-shadow-[0_0_10px_rgba(190,148,75,0.4)]" />
-                            <h3 className="text-2xl font-serif mb-4 tracking-wide whitespace-nowrap text-white drop-shadow-sm">Cuenta de Respaldo Imperial</h3>
+                            <h3 className="text-2xl font-serif mb-4 tracking-wide whitespace-nowrap !text-white drop-shadow-sm">Cuenta de Respaldo Imperial</h3>
                             <p className="text-sm md:text-base text-white/80 font-light leading-relaxed">
                                 Un depósito bancario tradicional bajo protección IPAB que actúa como colateral productivo. Los recursos nunca abandonan el sistema bancario regulado.
                             </p>
@@ -407,7 +407,7 @@ export default function HomeClient() {
                             transition={{ duration: 0.3 }}
                         >
                             <CreditCard className="w-12 h-12 text-[var(--muted-orange)] mb-6 drop-shadow-[0_0_10px_rgba(190,148,75,0.4)]" />
-                            <h3 className="text-2xl font-serif mb-4 tracking-wide whitespace-nowrap text-white drop-shadow-sm">Vinculación Inteligente</h3>
+                            <h3 className="text-2xl font-serif mb-4 tracking-wide whitespace-nowrap !text-white drop-shadow-sm">Vinculación Inteligente</h3>
                             <p className="text-sm md:text-base text-white/80 font-light leading-relaxed">
                                 La línea de crédito se sincroniza con el capital protegido, permitiendo gasto financiero sin comprometer la seguridad patrimonial.
                             </p>
@@ -483,10 +483,10 @@ export default function HomeClient() {
                         ].map((item, idx) => (
                             <motion.div
                                 key={idx}
-                                className={`bg-white rounded-2xl p-6 shadow-sm flex flex-col items-center text-center gap-4 border border-black/5 hover:border-[var(--muted-orange)]/30 transition-all ${idx === 4 ? 'col-span-2 lg:col-span-1' : ''}`}
+                                className={`bg-white rounded-2xl p-4 md:p-6 shadow-sm flex flex-col items-center text-center gap-2 md:gap-4 border border-black/5 hover:border-[var(--muted-orange)]/30 transition-all ${idx === 4 ? 'col-span-2 lg:col-span-1' : ''}`}
                                 whileHover={{ scale: 1.05 }}
                             >
-                                <item.icon className="w-8 h-8 text-[var(--muted-orange)]" />
+                                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-[var(--muted-orange)]" />
                                 <span className="text-[10px] md:text-xs font-medium text-[var(--imperial-black)]/70 uppercase tracking-widest">{item.text}</span>
                             </motion.div>
                         ))}

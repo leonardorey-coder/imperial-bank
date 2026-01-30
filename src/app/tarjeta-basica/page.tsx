@@ -4,6 +4,8 @@ import Benefits from '@/components/Benefits';
 import Modules from '@/components/Modules';
 import Specs from '@/components/Specs';
 import Footer from '@/components/Footer';
+import UserPersona from '@/components/UserPersona';
+import ValueMap from '@/components/ValueMap';
 
 export const metadata: Metadata = {
     title: "Imperial Básica | Crédito Claro y Control Total",
@@ -19,6 +21,13 @@ export default function TarjetaBasica() {
 
             {/* Landing sections */}
             <Benefits />
+
+            {/* User Persona */}
+            <UserPersona />
+
+            {/* Value Map */}
+            <ValueMap />
+
             <Modules />
             <Specs />
             <Footer />
