@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, PT_Serif, Arapey } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import Header from "@/components/Header";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -40,6 +41,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${inter.variable} ${ptSerif.variable} ${arapey.variable} antialiased font-sans`}>
         <SmoothScroll>
+          <Header />
           {children}
         </SmoothScroll>
       </body>

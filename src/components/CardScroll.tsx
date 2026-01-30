@@ -168,8 +168,9 @@ export default function CardScroll() {
                 drawHeight = drawWidth / imgAspect;
 
                 // Center logic (adjusted to pan camera right/shift image left)
+                // Move image up to reduce gap below header
                 drawX = (rect.width - drawWidth) / 2 - (rect.width * 0.025);
-                drawY = (rect.height - drawHeight) / 2;
+                drawY = (rect.height - drawHeight) / 2 - (rect.height * 0.08);
             } else {
                 // Desktop logic - Keep existing (Contain mostly)
                 if (imgAspect > canvasAspect) {
