@@ -41,7 +41,7 @@ export default function UserPersonaControl() {
                             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--muted-orange)]/20 to-[var(--imperial-blue)]/20">
                                 <img
                                     src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face"
-                                    alt="Roberto Méndez García"
+                                    alt="Juan Sebastian Castillo López"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -100,7 +100,7 @@ export default function UserPersonaControl() {
                     >
                         {/* Name */}
                         <div>
-                            <h3 className="text-3xl md:text-5xl font-serif text-[var(--imperial-blue)] mb-4">Roberto Méndez García</h3>
+                            <h3 className="text-3xl md:text-5xl font-serif text-[var(--imperial-blue)] mb-4">Juan Sebastian Castillo López</h3>
                         </div>
 
                         {/* Bio */}

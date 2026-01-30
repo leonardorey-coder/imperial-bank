@@ -316,7 +316,7 @@ export default function CardScrollTarjetas() {
                         }}
                     >
                         <h1
-                            className="text-5xl md:text-7xl font-bold font-serif !text-white mb-4 whitespace-nowrap drop-shadow-2xl"
+                            className="text-3xl md:text-7xl font-bold font-serif !text-white mb-4 whitespace-nowrap drop-shadow-2xl"
                             style={{
                                 letterSpacing: `${letterSpacing}em`,
                                 transition: 'letter-spacing 0.05s ease-out',

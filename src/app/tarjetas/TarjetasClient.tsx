@@ -20,16 +20,6 @@ const staggerContainer = {
     }
 };
 
-// WCAG Color Contrast Data
-const wcagData = [
-    { bg: '#0D355F', text: 'white', label: 'Azul Imperial' },
-    { bg: '#101820', text: 'white', label: 'Azul Oscuro' },
-    { bg: '#0D355F', text: 'white', label: 'Azul Imperial' },
-    { bg: '#D1CEC9', text: '#101820', label: 'Gris Claro' },
-    { bg: '#0D355F', text: 'white', label: 'Azul Imperial' },
-    { bg: '#BE944B', text: 'white', label: 'Dorado' },
-];
-
 // 5 W's Data
 const fiveWsData = [
     {
@@ -85,81 +75,7 @@ export default function TarjetasClient() {
             {/* Hero Section with Scroll Animation - Outside of overflow container */}
             <CardScrollTarjetas />
 
-            <main className="bg-[var(--imperial-white)]">
-                {/* WCAG Section */}
-                <section id="tarjetas-info" className="py-20 md:py-32 px-4 bg-[var(--imperial-white)]">
-                    <div className="max-w-7xl mx-auto">
-                        <motion.div
-                            className="mb-16"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className="text-5xl md:text-7xl font-bold text-[var(--imperial-blue)] tracking-tight">WCAG</h2>
-                            <p className="text-[var(--imperial-black)]/50 mt-4 text-lg font-light">Accesibilidad y contraste de colores</p>
-                        </motion.div>
-
-                        <motion.div
-                            className="grid grid-cols-1 md:grid-cols-3 gap-4"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                        >
-                            {/* Left Column - Large Blue Card */}
-                            <motion.div
-                                className="md:row-span-2 rounded-3xl p-8 md:p-12 flex flex-col justify-between min-h-[400px] md:min-h-[500px]"
-                                style={{ backgroundColor: '#0D355F' }}
-                                variants={fadeInUp}
-                            >
-                                <div>
-                                    <span className="text-white/40 text-xs tracking-widest uppercase">Imperial Blue</span>
-                                    <p className="text-white text-2xl md:text-3xl font-serif mt-4 leading-relaxed">
-                                        El azul imperial transmite confianza y estabilidad institucional.
-                                    </p>
-                                </div>
-                                <span className="text-white/30 text-sm">2026</span>
-                            </motion.div>
-
-                            {/* Right Grid - 2x2 */}
-                            <motion.div
-                                className="rounded-3xl p-6 md:p-8 flex flex-col justify-center min-h-[200px]"
-                                style={{ backgroundColor: '#101820' }}
-                                variants={fadeInUp}
-                            >
-                                <p className="text-white/60 text-sm mb-2">Contraste AAA</p>
-                                <p className="text-white font-bold text-lg">Texto claro sobre fondo oscuro</p>
-                            </motion.div>
-
-                            <motion.div
-                                className="rounded-3xl p-6 md:p-8 flex flex-col justify-center min-h-[200px]"
-                                style={{ backgroundColor: '#0D355F' }}
-                                variants={fadeInUp}
-                            >
-                                <p className="text-white/60 text-sm mb-2">Contraste AA</p>
-                                <p className="text-white font-bold text-lg">Legibilidad garantizada</p>
-                            </motion.div>
-
-                            <motion.div
-                                className="rounded-3xl p-6 md:p-8 flex flex-col justify-center min-h-[200px]"
-                                style={{ backgroundColor: '#D1CEC9' }}
-                                variants={fadeInUp}
-                            >
-                                <p className="text-[#101820]/60 text-sm mb-2">Contraste Inverso</p>
-                                <p className="text-[#101820] font-bold text-lg">Texto oscuro sobre fondo claro</p>
-                            </motion.div>
-
-                            <motion.div
-                                className="rounded-3xl p-6 md:p-8 flex flex-col justify-center min-h-[200px]"
-                                style={{ backgroundColor: '#BE944B' }}
-                                variants={fadeInUp}
-                            >
-                                <p className="text-white/70 text-sm mb-2">Acento Dorado</p>
-                                <p className="text-white font-bold text-lg">Destacar elementos premium</p>
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </section>
+            <main id="tarjetas-info" className="bg-[var(--imperial-white)]">
 
                 {/* 5 W's Section */}
                 <section className="py-20 md:py-32 px-4 relative">

@@ -257,6 +257,124 @@ export default function HomeClient() {
                 </div>
             </section>
 
+            {/* Section 4: Tipografía */}
+            <section className="py-20 md:py-32 px-4 bg-[var(--imperial-white)]">
+                <div className="max-w-6xl mx-auto">
+                    <motion.div
+                        className="text-center mb-16"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-4xl md:text-6xl font-serif text-[var(--imperial-black)] italic tracking-widest">Tipografía</h2>
+                    </motion.div>
+
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                    >
+                        {/* PT Serif */}
+                        <motion.div
+                            className="bg-white rounded-3xl p-8 md:p-12 border border-[var(--light-grey)]/30 shadow-sm"
+                            variants={fadeInUp}
+                        >
+                            <h3 className="text-xl md:text-2xl text-[var(--imperial-blue)] mb-6 tracking-wider font-medium">PT Serif</h3>
+                            <div className="flex items-end gap-4 mb-6">
+                                <span className="text-6xl md:text-8xl font-serif text-[var(--imperial-black)]">Aa</span>
+                                <span className="text-sm md:text-base text-[var(--imperial-black)]/50 pb-4 font-light">Títulos<br />sub títulos</span>
+                            </div>
+                            <div className="space-y-2 text-[var(--imperial-black)]/70 font-serif">
+                                <p className="text-xs md:text-sm tracking-wider">ABCDEFGHIJKLMNOPQRSTU</p>
+                                <p className="text-xs md:text-sm tracking-wider">VWXYZabcdefghijklmnopqrst</p>
+                                <p className="text-xs md:text-sm tracking-wider">uvwxyz1234567890</p>
+                            </div>
+                        </motion.div>
+
+                        {/* Arapey */}
+                        <motion.div
+                            className="bg-white rounded-3xl p-8 md:p-12 border border-[var(--light-grey)]/30 shadow-sm"
+                            variants={fadeInUp}
+                        >
+                            <h3 className="text-xl md:text-2xl text-[var(--imperial-blue)] mb-6 tracking-wider font-light italic">Arapey</h3>
+                            <div className="flex items-end gap-4 mb-6">
+                                <span className="text-6xl md:text-8xl font-light italic text-[var(--imperial-black)]/70">Aa</span>
+                                <span className="text-sm md:text-base text-[var(--imperial-black)]/50 pb-4 font-light">Texto</span>
+                            </div>
+                            <div className="space-y-2 text-[var(--imperial-black)]/50 font-light">
+                                <p className="text-xs md:text-sm tracking-wider">ABCDEFGHIJKLMNOPQRSTUVWX</p>
+                                <p className="text-xs md:text-sm tracking-wider">YZabcdefghijklmnopqrstuvwxyz12</p>
+                                <p className="text-xs md:text-sm tracking-wider text-center">34567890</p>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Section 5: Paleta de Colores */}
+            <section className="py-20 md:py-32 px-4 relative overflow-hidden">
+                {/* Background decorativo */}
+                <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[var(--muted-orange)]/10 to-transparent" />
+                <div className="absolute bottom-0 right-0 w-1/2 h-32 opacity-30">
+                    <div className="w-full h-full bg-gradient-to-l from-[var(--muted-orange)]/30 via-transparent to-transparent" />
+                </div>
+
+                <div className="max-w-6xl mx-auto relative z-10">
+                    <motion.div
+                        className="flex items-center gap-6 mb-16"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <img src="/logotipo.png" alt="Imperial Bank" className="w-10 h-10 md:w-14 md:h-14 object-contain" />
+                        <h2 className="text-3xl md:text-5xl font-serif text-[var(--imperial-blue)] tracking-[0.15em] uppercase">Paleta de Colores</h2>
+                    </motion.div>
+
+                    <motion.div
+                        className="grid grid-cols-5 gap-3 md:gap-6"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                    >
+                        {[
+                            { hex: '#0d355f', name: 'Azul Imperial' },
+                            { hex: '#be944b', name: 'Naranja Apagado' },
+                            { hex: '#d1cec9', name: 'Gris Claro' },
+                            { hex: '#101111', name: 'Negro Imperial' },
+                            { hex: '#efeff0', name: 'Blanco Perla' }
+                        ].map((color, idx) => (
+                            <motion.div
+                                key={idx}
+                                className="flex flex-col items-center"
+                                variants={fadeInUp}
+                            >
+                                <div
+                                    className="w-full aspect-[3/4] rounded-2xl md:rounded-3xl shadow-lg hover:shadow-xl transition-all hover:scale-105 cursor-pointer border border-black/5"
+                                    style={{ backgroundColor: color.hex }}
+                                />
+                                <span className="mt-4 text-[8px] md:text-xs font-mono text-[var(--imperial-black)]/50 uppercase tracking-wider">{color.hex}</span>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+
+                    {/* Decorative line */}
+                    <motion.div
+                        className="flex items-center justify-center mt-16 gap-4"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        <div className="h-px w-24 md:w-40 bg-[var(--imperial-black)]/10" />
+                        <div className="w-3 h-3 rotate-45 border border-[var(--imperial-black)]/20" />
+                        <div className="h-px w-24 md:w-40 bg-[var(--imperial-black)]/10" />
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Section: Shades with detailed IDs and HEX */}
             <section className="py-24 px-4 bg-[var(--imperial-white)] relative overflow-hidden">
                 <div className="max-w-7xl mx-auto relative z-10">
@@ -373,6 +491,81 @@ export default function HomeClient() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* WCAG Section */}
+            <section className="py-20 md:py-32 px-4 bg-[var(--imperial-white)]">
+                <div className="max-w-7xl mx-auto">
+                    <motion.div
+                        className="mb-16"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-5xl md:text-7xl font-bold text-[var(--imperial-blue)] tracking-tight">WCAG</h2>
+                        <p className="text-[var(--imperial-black)]/50 mt-4 text-lg font-light">Accesibilidad y contraste de colores</p>
+                    </motion.div>
+
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-3 gap-4"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                    >
+                        {/* Left Column - Large Blue Card */}
+                        <motion.div
+                            className="md:row-span-2 rounded-3xl p-8 md:p-12 flex flex-col justify-between min-h-[400px] md:min-h-[500px]"
+                            style={{ backgroundColor: '#0D355F' }}
+                            variants={fadeInUp}
+                        >
+                            <div>
+                                <span className="text-white/40 text-xs tracking-widest uppercase">Imperial Blue</span>
+                                <p className="text-white text-2xl md:text-3xl font-serif mt-4 leading-relaxed">
+                                    El azul imperial transmite confianza y estabilidad institucional.
+                                </p>
+                            </div>
+                            <span className="text-white/30 text-sm">2026</span>
+                        </motion.div>
+
+                        {/* Right Grid - 2x2 */}
+                        <motion.div
+                            className="rounded-3xl p-6 md:p-8 flex flex-col justify-center min-h-[200px]"
+                            style={{ backgroundColor: '#101820' }}
+                            variants={fadeInUp}
+                        >
+                            <p className="text-white/60 text-sm mb-2">Contraste AAA</p>
+                            <p className="text-white font-bold text-lg">Texto claro sobre fondo oscuro</p>
+                        </motion.div>
+
+                        <motion.div
+                            className="rounded-3xl p-6 md:p-8 flex flex-col justify-center min-h-[200px]"
+                            style={{ backgroundColor: '#0D355F' }}
+                            variants={fadeInUp}
+                        >
+                            <p className="text-white/60 text-sm mb-2">Contraste AA</p>
+                            <p className="text-white font-bold text-lg">Legibilidad garantizada</p>
+                        </motion.div>
+
+                        <motion.div
+                            className="rounded-3xl p-6 md:p-8 flex flex-col justify-center min-h-[200px]"
+                            style={{ backgroundColor: '#D1CEC9' }}
+                            variants={fadeInUp}
+                        >
+                            <p className="text-[#101820]/60 text-sm mb-2">Contraste Inverso</p>
+                            <p className="text-[#101820] font-bold text-lg">Texto oscuro sobre fondo claro</p>
+                        </motion.div>
+
+                        <motion.div
+                            className="rounded-3xl p-6 md:p-8 flex flex-col justify-center min-h-[200px]"
+                            style={{ backgroundColor: '#BE944B' }}
+                            variants={fadeInUp}
+                        >
+                            <p className="text-white/70 text-sm mb-2">Acento Dorado</p>
+                            <p className="text-white font-bold text-lg">Destacar elementos premium</p>
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </section>
 
             {/* Core Model Section */}
             <section className="py-24 md:py-32 px-4 bg-[var(--imperial-blue)] text-white">
