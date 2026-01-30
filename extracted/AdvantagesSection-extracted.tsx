@@ -28,7 +28,7 @@ const AdvantagesSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
     const bgRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const requestRef = useRef<number>();
+    const requestRef = useRef<number | undefined>(undefined);
 
     useEffect(() => {
         const updateTransitions = () => {
@@ -105,7 +105,7 @@ const AdvantagesSection: React.FC = () => {
                 {ADVANTAGES.map((adv, idx) => (
                     <div
                         key={idx}
-                        ref={(el) => (bgRefs.current[idx] = el)}
+                        ref={(el) => { bgRefs.current[idx] = el; }}
                         className="absolute inset-0 will-change-opacity pointer-events-none"
                         style={{ opacity: idx === 0 ? 1 : 0 }}
                     >
@@ -132,7 +132,7 @@ const AdvantagesSection: React.FC = () => {
                     {ADVANTAGES.map((item, idx) => (
                         <div
                             key={idx}
-                            ref={(el) => (contentRefs.current[idx] = el)}
+                            ref={(el) => { contentRefs.current[idx] = el; }}
                             className="min-h-screen flex items-center justify-start md:justify-end py-24 snap-section"
                         >
                             <div
