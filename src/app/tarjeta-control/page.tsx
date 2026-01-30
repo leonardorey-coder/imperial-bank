@@ -22,14 +22,15 @@ export default function TarjetaControl() {
             {/* Landing sections */}
             <BenefitsControl />
 
+            <ModulesControl />
+            <SpecsControl />
+
             {/* User Persona */}
             <UserPersonaControl />
 
             {/* Value Map */}
             <ValueMapControl />
 
-            <ModulesControl />
-            <SpecsControl />
             <FooterControl />
         </main>
     );

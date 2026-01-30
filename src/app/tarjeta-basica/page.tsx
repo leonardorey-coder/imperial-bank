@@ -22,14 +22,15 @@ export default function TarjetaBasica() {
             {/* Landing sections */}
             <Benefits />
 
+            <Modules />
+            <Specs />
+
             {/* User Persona */}
             <UserPersona />
 
             {/* Value Map */}
             <ValueMap />
 
-            <Modules />
-            <Specs />
             <Footer />
         </main>
     );
