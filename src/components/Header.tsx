@@ -48,6 +48,13 @@ export default function Header() {
                         <span className="text-xs md:text-sm font-medium tracking-wide">Imperial Básica</span>
                         <ChevronRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
                     </Link>
+                    <Link
+                        href="/tarjeta-control"
+                        className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors group"
+                    >
+                        <span className="text-xs md:text-sm font-medium tracking-wide">Tarjeta Control</span>
+                        <ChevronRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    </Link>
                 </div>
             </div>
         </header>
