@@ -1,14 +1,35 @@
 @import "tailwindcss";
 
 :root {
+  /* Imperial Palette */
+  --imperial-blue: #0d355f;
+  --muted-orange: #be944b;
+  --light-grey: #d1cec9;
+  /* 60% approx with white */
+  --imperial-black: #101111;
+  --imperial-white: #efeff0;
+  /* Dominant background ? */
+
+  /* Functional Tokens */
   --background: #050505;
-  --foreground: #ededed;
+  --foreground: var(--imperial-black);
+  --primary: var(--imperial-blue);
+  --accent: var(--muted-orange);
+  --surface: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-imperial-blue: var(--imperial-blue);
+  --color-muted-orange: var(--muted-orange);
+  --color-light-grey: var(--light-grey);
+  --color-imperial-black: var(--imperial-black);
+  --color-imperial-white: var(--imperial-white);
+
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-pt-serif);
+  --font-display: var(--font-arapey);
 }
 
 html {
@@ -18,9 +39,21 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-display), serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--imperial-blue);
 }
 
 /* Hide scrollbar for cleaner look */
@@ -29,7 +62,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {

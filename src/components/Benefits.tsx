@@ -49,7 +49,7 @@ const benefits: Benefit[] = [
 
 export default function Benefits() {
     return (
-        <section className="py-24 md:py-32 px-6 bg-[#050505]">
+        <section className="py-24 md:py-32 px-6 bg-[var(--imperial-white)] text-[var(--imperial-blue)]">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -58,11 +58,11 @@ export default function Benefits() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-light text-white mb-4">
+                    <h2 className="text-4xl md:text-6xl font-serif mb-6">
                         Beneficios pensados para ti
                     </h2>
-                    <p className="text-white/50 text-lg max-w-2xl mx-auto">
-                        Una tarjeta de crédito diseñada con claridad y respeto.
+                    <p className="text-[var(--imperial-blue)]/80 text-xl font-display max-w-2xl mx-auto italic">
+                        Una tarjeta diseñada con claridad y respeto.
                     </p>
                 </motion.div>
 
@@ -74,11 +74,11 @@ export default function Benefits() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="p-8 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.05] transition-colors"
+                            className="p-8 group bg-white border border-[var(--light-grey)]/30 hover:border-[var(--muted-orange)]/50 hover:shadow-xl hover:shadow-[var(--light-grey)]/20 transition-all duration-500"
                         >
-                            <div className="text-white/60 mb-4">{benefit.icon}</div>
-                            <h3 className="text-xl font-medium text-white mb-2">{benefit.title}</h3>
-                            <p className="text-white/50 text-sm leading-relaxed">{benefit.description}</p>
+                            <div className="text-[var(--muted-orange)] mb-6 transform group-hover:scale-110 transition-transform duration-500">{benefit.icon}</div>
+                            <h3 className="text-2xl font-serif text-[var(--imperial-blue)] mb-3">{benefit.title}</h3>
+                            <p className="text-[var(--imperial-blue)]/70 font-display text-lg leading-relaxed">{benefit.description}</p>
                         </motion.div>
                     ))}
                 </div>

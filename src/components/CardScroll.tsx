@@ -12,6 +12,7 @@ interface TextOverlay {
 export default function CardScroll() {
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const bgCanvasRef = useRef<HTMLCanvasElement>(null); // New ref for blur background
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [loadingProgress, setLoadingProgress] = useState(0);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -23,15 +24,15 @@ export default function CardScroll() {
     const letterSpacing = Math.min(scrollProgress / 0.12, 1) * 2;
     const titleOpacity = Math.max(0, 1 - (scrollProgress / 0.15));
 
-    // Text overlays configuration (excluding first one which is now dynamic)
+    // Text overlays configuration
     const overlays: TextOverlay[] = [
         {
             startProgress: 0.25,
             endProgress: 0.45,
             content: (
                 <div className="text-center max-w-2xl">
-                    <p className="text-3xl md:text-5xl font-light text-white leading-tight">
-                        Transparencia sin sorpresas.
+                    <p className="text-4xl md:text-6xl font-serif text-white leading-tight drop-shadow-lg">
+                        Transparencia <span className="text-emerald-400 italic">sin sorpresas.</span>
                     </p>
                 </div>
             ),
@@ -41,22 +42,23 @@ export default function CardScroll() {
             endProgress: 0.75,
             content: (
                 <div className="text-center max-w-2xl">
-                    <p className="text-3xl md:text-5xl font-light text-white leading-tight">
-                        Seguridad. Control. Acompañamiento.
+                    <p className="text-4xl md:text-6xl font-serif text-white leading-tight drop-shadow-lg">
+                        Seguridad. Control. <br />
+                        <span className="italic font-display text-[var(--muted-orange)]">Acompañamiento.</span>
                     </p>
                 </div>
             ),
         },
         {
-            startProgress: 0.85,
-            endProgress: 1,
+            startProgress: 0.80,
+            endProgress: 1.1,
             content: (
                 <div className="text-center">
                     <button
                         onClick={() => {
                             document.getElementById('specs')?.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-white/90 transition-colors text-lg"
+                        className="px-8 py-4 bg-[var(--muted-orange)] text-white font-serif tracking-wide rounded-sm hover:brightness-110 transition-all duration-300 text-lg shadow-lg hover:shadow-[var(--muted-orange)]/50"
                     >
                         Ver especificaciones
                     </button>
@@ -109,7 +111,9 @@ export default function CardScroll() {
     const drawFrame = useCallback(
         (frameIndex: number) => {
             const canvas = canvasRef.current;
+            const bgCanvas = bgCanvasRef.current;
             const ctx = canvas?.getContext('2d');
+            const bgCtx = bgCanvas?.getContext('2d');
             const img = images[frameIndex];
 
             if (!canvas || !ctx || !img) return;
@@ -118,38 +122,56 @@ export default function CardScroll() {
             const dpr = Math.min(window.devicePixelRatio || 1, 2);
             const rect = canvas.getBoundingClientRect();
 
+            // Setup main canvas
             canvas.width = rect.width * dpr;
             canvas.height = rect.height * dpr;
-
             ctx.scale(dpr, dpr);
-
-            // Clear canvas
             ctx.clearRect(0, 0, rect.width, rect.height);
 
-            // Calculate scaling - use "cover" on mobile (portrait), "contain" on desktop
+            // Setup background canvas (if present)
+            if (bgCanvas && bgCtx) {
+                bgCanvas.width = rect.width * dpr;
+                bgCanvas.height = rect.height * dpr;
+                bgCtx.scale(dpr, dpr);
+                // No need to clear rect for bg as we cover it all
+            }
+
             const imgAspect = img.width / img.height;
             const canvasAspect = rect.width / rect.height;
             const isMobile = rect.width < 768;
 
+            // --- 1. Draw Main Image ---
+            /* 
+               Mobile Logic Update: 
+               User wants to "zoom out" (contain) to see the full card and avoid cropping.
+               The black bars (empty space) will be filled by the 'cover' background canvas below.
+            */
             let drawWidth, drawHeight, drawX, drawY;
 
             if (isMobile) {
-                // Cover mode for mobile - fill screen, crop edges
-                // Offset to shift content right (positive = shift image left, showing more of right side)
-                const offsetX = -rect.width * 0.03; // Shift 3% to the right
-                if (imgAspect > canvasAspect) {
-                    drawHeight = rect.height;
-                    drawWidth = rect.height * imgAspect;
-                    drawX = (rect.width - drawWidth) / 2 + offsetX;
-                    drawY = 0;
-                } else {
-                    drawWidth = rect.width;
-                    drawHeight = rect.width / imgAspect;
-                    drawX = offsetX;
-                    drawY = (rect.height - drawHeight) / 2;
-                }
+                // "Hybrid" mode for mobile:
+                // Ensure the card takes up a significant portion of the screen height (approx 55%)
+                // while respecting the screen width to avoid horizontal cropping if possible.
+
+                // 1. Calculate dimensions to cover 70% of screen height (even closer zoom)
+                const targetHeight = rect.height * 0.70;
+                const targetWidth = targetHeight * imgAspect;
+
+                // 2. Ensure it at least fills standard width with margins
+                const minWidth = rect.width * 0.92;
+
+                // 3. Choose the larger of the two widths (zooming in), but...
+                // ...if zooming in makes it HUGE (e.g. extremely wide video), we might want to cap it.
+                // For a standard 16:9 card on 9:16 screen, targetWidth will be > rect.width.
+                // This means we WILL crop sides. This is the "not too far" trade-off.
+                drawWidth = Math.max(minWidth, targetWidth);
+                drawHeight = drawWidth / imgAspect;
+
+                // Center logic (adjusted to pan camera right/shift image left)
+                drawX = (rect.width - drawWidth) / 2 - (rect.width * 0.025);
+                drawY = (rect.height - drawHeight) / 2;
             } else {
-                // Contain mode for desktop
+                // Desktop logic - Keep existing (Contain mostly)
                 if (imgAspect > canvasAspect) {
                     drawWidth = rect.width;
                     drawHeight = rect.width / imgAspect;
@@ -164,6 +186,37 @@ export default function CardScroll() {
             }
 
             ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
+
+
+            // --- 2. Draw Background Image (Always Cover) ---
+            if (bgCtx) {
+                let bgDrawWidth, bgDrawHeight, bgDrawX, bgDrawY;
+                // Force Cover logic
+                if (imgAspect > canvasAspect) { // Image is wider relative to canvas
+                    // To fill height, we must scale up
+                    // Actually logic is: 
+                    // If imgAspect (w/h) > canvasAspect (w/h) -> Image is "flatter".
+                    // To cover taller canvas, we must match Height.
+                    // Scale = canvasHeight / imgHeight
+                    // Width = imgWidth * Scale = imgWidth * (canvasHeight/imgHeight) = canvasHeight * imgAspect
+                    bgDrawHeight = rect.height;
+                    bgDrawWidth = rect.height * imgAspect;
+
+                    // Center X
+                    bgDrawX = (rect.width - bgDrawWidth) / 2;
+                    bgDrawY = 0;
+                } else {
+                    // Image is taller relative to canvas
+                    // Match Width
+                    bgDrawWidth = rect.width;
+                    bgDrawHeight = rect.width / imgAspect;
+
+                    // Center Y
+                    bgDrawX = 0;
+                    bgDrawY = (rect.height - bgDrawHeight) / 2;
+                }
+                bgCtx.drawImage(img, bgDrawX, bgDrawY, bgDrawWidth, bgDrawHeight);
+            }
         },
         [images]
     );
@@ -258,34 +311,35 @@ export default function CardScroll() {
     return (
         <div
             ref={containerRef}
-            className="relative"
-            style={{ height: '350vh' }}
+            className="relative bg-[#050505]"
+            style={{ height: '420vh' }}
         >
             {/* Sticky canvas container */}
-            <div className="sticky top-0 h-screen w-full flex items-center justify-center">
+            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+                {/* Background Blur Canvas */}
+                <canvas
+                    ref={bgCanvasRef}
+                    className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-50 contrast-125 saturate-150"
+                />
+
+                {/* Main Foreground Canvas */}
                 <canvas
                     ref={canvasRef}
-                    className="w-full h-full"
+                    className="relative w-full h-full z-10"
                     style={{ maxWidth: '100%', maxHeight: '100%' }}
                 />
 
                 {/* Bottom gradient to hide watermark */}
                 <div
-                    className="absolute bottom-0 left-0 right-0 h-36 pointer-events-none"
+                    className="absolute bottom-0 left-0 right-0 h-72 pointer-events-none z-20"
                     style={{
                         background: 'linear-gradient(to bottom, transparent, #050505 80%)',
                     }}
                 />
-                {/* Corner gradient for watermark */}
-                <div
-                    className="absolute bottom-0 right-0 w-48 h-36 pointer-events-none"
-                    style={{
-                        background: 'radial-gradient(ellipse at bottom right, #050505 0%, transparent 70%)',
-                    }}
-                />
+
                 {/* Dynamic title with letter-spacing effect */}
                 <div
-                    className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none overflow-hidden"
+                    className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none overflow-hidden z-30"
                     style={{ opacity: titleOpacity }}
                 >
                     <div
@@ -296,7 +350,7 @@ export default function CardScroll() {
                         }}
                     >
                         <h1
-                            className="text-5xl md:text-7xl font-light text-white mb-4 whitespace-nowrap"
+                            className="text-5xl md:text-7xl font-bold font-serif !text-white mb-4 whitespace-nowrap drop-shadow-2xl"
                             style={{
                                 letterSpacing: `${letterSpacing}em`,
                                 transition: 'letter-spacing 0.05s ease-out',
@@ -305,7 +359,7 @@ export default function CardScroll() {
                             Imperial Básica
                         </h1>
                         <p
-                            className="text-xl md:text-2xl text-white/70 font-light whitespace-nowrap"
+                            className="text-xl md:text-3xl text-emerald-100/90 font-display italic whitespace-nowrap drop-shadow-lg"
                             style={{
                                 letterSpacing: `${letterSpacing * 0.3}em`,
                                 transition: 'letter-spacing 0.05s ease-out',
@@ -322,7 +376,7 @@ export default function CardScroll() {
                     return (
                         <div
                             key={index}
-                            className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none"
+                            className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none z-30"
                             style={{ opacity, transition: 'opacity 0.1s ease-out' }}
                         >
                             <div className={opacity > 0 ? 'pointer-events-auto' : 'pointer-events-none'}>
@@ -335,7 +389,7 @@ export default function CardScroll() {
                 {/* Scroll indicator */}
                 {scrollProgress < 0.1 && (
                     <motion.div
-                        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1, duration: 0.5 }}
