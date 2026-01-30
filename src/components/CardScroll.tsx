@@ -126,22 +126,41 @@ export default function CardScroll() {
             // Clear canvas
             ctx.clearRect(0, 0, rect.width, rect.height);
 
-            // Calculate "contain" scaling
+            // Calculate scaling - use "cover" on mobile (portrait), "contain" on desktop
             const imgAspect = img.width / img.height;
             const canvasAspect = rect.width / rect.height;
+            const isMobile = rect.width < 768;
 
             let drawWidth, drawHeight, drawX, drawY;
 
-            if (imgAspect > canvasAspect) {
-                drawWidth = rect.width;
-                drawHeight = rect.width / imgAspect;
-                drawX = 0;
-                drawY = (rect.height - drawHeight) / 2;
+            if (isMobile) {
+                // Cover mode for mobile - fill screen, crop edges
+                // Offset to shift content right (positive = shift image left, showing more of right side)
+                const offsetX = -rect.width * 0.03; // Shift 3% to the right
+                if (imgAspect > canvasAspect) {
+                    drawHeight = rect.height;
+                    drawWidth = rect.height * imgAspect;
+                    drawX = (rect.width - drawWidth) / 2 + offsetX;
+                    drawY = 0;
+                } else {
+                    drawWidth = rect.width;
+                    drawHeight = rect.width / imgAspect;
+                    drawX = offsetX;
+                    drawY = (rect.height - drawHeight) / 2;
+                }
             } else {
-                drawHeight = rect.height;
-                drawWidth = rect.height * imgAspect;
-                drawX = (rect.width - drawWidth) / 2;
-                drawY = 0;
+                // Contain mode for desktop
+                if (imgAspect > canvasAspect) {
+                    drawWidth = rect.width;
+                    drawHeight = rect.width / imgAspect;
+                    drawX = 0;
+                    drawY = (rect.height - drawHeight) / 2;
+                } else {
+                    drawHeight = rect.height;
+                    drawWidth = rect.height * imgAspect;
+                    drawX = (rect.width - drawWidth) / 2;
+                    drawY = 0;
+                }
             }
 
             ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
