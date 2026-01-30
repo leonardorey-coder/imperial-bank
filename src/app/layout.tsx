@@ -22,13 +22,23 @@ const arapey = Arapey({
 });
 
 export const metadata: Metadata = {
-  title: "Imperial Básica | Imperial Bank",
-  description: "Crédito claro. Control total. Una tarjeta de crédito diseñada con transparencia y respeto.",
-  keywords: ["tarjeta de crédito", "Imperial Bank", "crédito", "finanzas", "banco"],
+  title: "Imperial Bank | Protección Patrimonial y Rendimiento",
+  description: "Descubre el modelo de banca honesta de Imperial Bank. Tarjetas fáciles de usar, protección de dinero con respaldo IPAB y rendimientos del 17%.",
+  keywords: [
+    "tarjetas fáciles uso",
+    "tarjeta protectora de dinero",
+    "Imperial Bank",
+    "protección IPAB",
+    "rendimiento bancario 17%",
+    "crédito seguro",
+    "banca senior",
+    "ahorro protegido"
+  ],
   openGraph: {
-    title: "Imperial Básica | Imperial Bank",
-    description: "Crédito claro. Control total.",
+    title: "Imperial Bank | Protección y Rendimiento",
+    description: "Banca diseñada para proteger tu capital y generar rendimientos reales.",
     type: "website",
+    locale: "es_MX",
   },
 };
 

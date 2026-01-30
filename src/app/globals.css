@@ -36,6 +36,22 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 120s linear infinite;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -83,6 +99,6 @@ a:focus-visible {
 
 /* Selection color */
 ::selection {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--muted-orange);
   color: white;
 }

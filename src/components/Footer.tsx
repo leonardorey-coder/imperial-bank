@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import BrandingCarousel from './BrandingCarousel';
 
 const footerLinks = {
     Producto: ['Imperial Básica', 'Imperial Oro', 'Imperial Platinum', 'Comparar tarjetas'],
@@ -12,8 +13,9 @@ const footerLinks = {
 export default function Footer() {
     return (
         <footer className="bg-[var(--imperial-black)] border-t border-[var(--imperial-blue)]/20 text-[var(--imperial-white)]">
+            <BrandingCarousel />
             {/* CTA Section */}
-            <div className="py-20 px-6 bg-[var(--imperial-blue)]/10">
+            <div className="py-20 px-6 bg-[var(--imperial-blue)]">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -21,10 +23,10 @@ export default function Footer() {
                     viewport={{ once: true }}
                     className="max-w-3xl mx-auto text-center"
                 >
-                    <h2 className="text-4xl md:text-5xl font-serif text-[var(--imperial-white)] mb-4">
+                    <h2 className="text-4xl md:text-5xl font-serif mb-4" style={{ color: 'white' }}>
                         Comienza tu camino hacia un crédito claro
                     </h2>
-                    <p className="text-[var(--imperial-white)]/70 mb-8 text-xl font-display italic">
+                    <p className="text-white/80 mb-8 text-xl font-serif italic">
                         Solicita Imperial Básica hoy y descubre una nueva forma de administrar tu crédito.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -65,14 +67,24 @@ export default function Footer() {
 
             {/* Bottom Section */}
             <div className="border-t border-white/[0.05] py-8 px-6 bg-black/20">
-                <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-[var(--imperial-blue)] flex items-center justify-center border border-[var(--muted-orange)]/30">
-                            <span className="text-[var(--imperial-white)] font-serif font-bold text-lg">IB</span>
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="flex items-center gap-4">
+                        <img
+                            src="/logotipo.png"
+                            alt="Imperial Bank Logo"
+                            className="w-10 h-10 object-contain"
+                        />
+                        <div className="flex items-center gap-2 text-white">
+                            <span className="text-sm font-medium tracking-wide opacity-60">
+                                The pucs company
+                            </span>
+                            <span className="text-white/30">|</span>
+                            <span className="text-base font-serif font-semibold tracking-wide">
+                                Imperial Bank
+                            </span>
                         </div>
-                        <span className="text-white/70 text-sm font-display tracking-widest uppercase">Imperial Bank</span>
                     </div>
-                    <p className="text-white/40 text-sm text-center md:text-right font-display">
+                    <p className="text-white/40 text-sm text-center md:text-right">
                         © 2026 Imperial Bank. Todos los derechos reservados.
                         <br className="md:hidden" />
                         <span className="hidden md:inline"> | </span>

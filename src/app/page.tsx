@@ -1,20 +1,21 @@
-import CardScroll from '@/components/CardScroll';
-import Benefits from '@/components/Benefits';
-import Modules from '@/components/Modules';
-import Specs from '@/components/Specs';
-import Footer from '@/components/Footer';
+import { Metadata } from 'next';
+import HomeClient from './HomeClient';
+
+export const metadata: Metadata = {
+  title: "Imperial Bank | Tarjetas Fáciles de Uso y Protección de Dinero",
+  description: "Banca transparente con Imperial Bank. Ofrecemos tarjetas fáciles de usar y una tarjeta protectora de dinero con respaldo IPAB. Rendimiento anual del 17%.",
+  keywords: [
+    "tarjetas fáciles uso",
+    "tarjeta protectora de dinero",
+    "Imperial Bank",
+    "protección IPAB",
+    "rendimiento bancario 17%",
+    "crédito seguro",
+    "banca honesta",
+    "ahorro protegido"
+  ],
+};
 
 export default function Home() {
-  return (
-    <main className="bg-[var(--imperial-white)]">
-      {/* Hero with scrollytelling */}
-      <CardScroll />
-
-      {/* Landing sections */}
-      <Benefits />
-      <Modules />
-      <Specs />
-      <Footer />
-    </main>
-  );
+  return <HomeClient />;
 }

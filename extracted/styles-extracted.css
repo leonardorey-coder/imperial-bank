@@ -1,0 +1,71 @@
+/* Estilos extraídos para AdvantagesSection y BrandingCarousel */
+
+/* Scroll Animation para el carrusel de branding */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-scroll {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+/* Scroll Snap Utilities (necesario para AdvantagesSection) */
+.snap-container {
+    scroll-snap-type: y proximity;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.snap-container.snap-mandatory-active {
+    scroll-snap-type: y mandatory !important;
+}
+
+.snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+.snap-mandatory-active .snap-section {
+    scroll-snap-stop: always !important;
+}
+
+/* Colores personalizados (Tailwind config) */
+:root {
+    --gold: #D4AF37;
+    --gold-light: #F3E5AB;
+    --dark: #050505;
+    --dark-accent: #111111;
+}
+
+/* Clases de utilidad Tailwind necesarias */
+.text-gold {
+    color: var(--gold);
+}
+
+.bg-dark {
+    background-color: var(--dark);
+}
+
+.bg-dark-accent {
+    background-color: var(--dark-accent);
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-display {
+    font-family: 'Cinzel', serif;
+}
+
+.font-sans {
+    font-family: 'Manrope', sans-serif;
+}
