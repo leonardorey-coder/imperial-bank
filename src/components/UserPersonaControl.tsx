@@ -40,7 +40,7 @@ export default function UserPersonaControl() {
                         <div className="relative mb-6 max-w-[180px] md:max-w-none">
                             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--muted-orange)]/20 to-[var(--imperial-blue)]/20">
                                 <img
-                                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face"
+                                    src="https://i.pinimg.com/originals/c7/7a/1f/c77a1f833acf233427b922539fa62afb.jpg"
                                     alt="Juan Sebastian Castillo López"
                                     className="w-full h-full object-cover"
                                 />
@@ -62,7 +62,7 @@ export default function UserPersonaControl() {
                             <div className="space-y-4">
                                 <div>
                                     <p className="text-[10px] uppercase tracking-widest text-[var(--imperial-black)]/40 font-medium">Edad</p>
-                                    <p className="text-lg font-serif text-[var(--imperial-blue)]">35-55</p>
+                                    <p className="text-lg font-serif text-[var(--imperial-blue)]">50-65</p>
                                 </div>
                                 <div>
                                     <p className="text-[10px] uppercase tracking-widest text-[var(--imperial-black)]/40 font-medium">Estado</p>
@@ -107,7 +107,7 @@ export default function UserPersonaControl() {
                         <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-[var(--light-grey)]/30">
                             <h4 className="text-lg font-serif text-[var(--imperial-blue)] mb-4">Bio</h4>
                             <p className="text-sm md:text-base text-[var(--imperial-black)]/70 leading-relaxed font-light">
-                                Profesional de 35-55 años con ingresos estables que busca hacer crecer sus ahorros de forma segura. No le interesa invertir en productos complejos o arriesgados. Valora la estabilidad, la transparencia y tener acceso inmediato a su dinero cuando lo necesite. Prefiere productos financieros con respaldo institucional y rendimientos claros.
+                                Profesional de 50-65 años con amplia trayectoria e ingresos estables que busca hacer crecer sus ahorros de forma segura. No le interesa invertir en productos complejos o arriesgados. Valora la estabilidad, la transparencia y tener acceso inmediato a su dinero cuando lo necesite. Prefiere productos financieros con respaldo institucional y rendimientos claros.
                             </p>
                         </div>
 

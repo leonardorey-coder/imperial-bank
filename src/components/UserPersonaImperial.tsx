@@ -7,7 +7,7 @@ const persona = {
     age: 58,
     location: 'Ciudad de México',
     occupation: 'CEO, Grupo Empresarial',
-    photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces',
+    photo: 'https://hairstylecamp.com/wp-content/uploads/layered-gray-hairstyle-for-over-50-with-glasses.jpg.webp',
     quote: '"No busco descuentos. Busco experiencias que no se pueden comprar."',
     bio: 'Natalia Mafer Gongora Cauich un conglomerado empresarial con presencia en 5 países. Viaja frecuentemente por negocios y valora el tiempo más que cualquier recurso. Busca servicios que eliminen fricciones y le permitan concentrarse en lo que realmente importa.',
     objectives: [

@@ -40,7 +40,7 @@ export default function UserPersona() {
                         <div className="relative mb-6 max-w-[180px] md:max-w-none">
                             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--light-grey)] to-[var(--imperial-blue)]/20">
                                 <img
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
+                                    src="https://ath2.unileverservices.com/wp-content/uploads/sites/13/2020/01/cortes-pelo-hombres-mayores-4.jpg"
                                     alt="Kevin Cauich Calvo"
                                     className="w-full h-full object-cover"
                                 />
