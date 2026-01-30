@@ -8,25 +8,25 @@ interface Spec {
 }
 
 const specs: Spec[] = [
-    { label: 'Tipo de tarjeta', value: 'Crédito Premium' },
-    { label: 'Anualidad', value: 'Incluida sin costo' },
-    { label: 'Límite de crédito', value: 'Sin límite predefinido' },
+    { label: 'Tipo de tarjeta', value: 'Portafolio Superior' },
+    { label: 'CAT promedio', value: '24.9% sin IVA' },
+    { label: 'Rendimiento anual', value: 'Hasta 17%' },
+    { label: 'Condición rendimiento', value: 'Línea mín. $3,000 MXN' },
+    { label: 'Anualidad', value: '$0 (sin penalizaciones)' },
+    { label: 'Red de aceptación', value: 'Mastercard World Elite' },
+    { label: 'Línea de crédito', value: 'Elevada y personalizada' },
     { label: 'Tecnología', value: 'Metal + Chip EMV + NFC' },
-    { label: 'Red de aceptación', value: 'Visa Infinite' },
-    { label: 'Concierge', value: '24/7 personalizado' },
-    { label: 'Salas VIP', value: '+1,300 en el mundo' },
-    { label: 'Seguro de viaje', value: 'Internacional premium' },
-    { label: 'Seguro de compras', value: '180 días de protección' },
-    { label: 'Puntos por compra', value: '3x en viajes y restaurantes' },
-    { label: 'Upgrade hotelero', value: 'Automático en partners' },
-    { label: 'Requisitos', value: 'Por invitación' },
+    { label: 'Atención', value: 'Prioritaria Senior 24/7' },
+    { label: 'Salas VIP', value: 'Acceso global Mastercard' },
+    { label: 'Relación Patrimonial', value: 'Activa' },
+    { label: 'Seguridad', value: 'Respaldo Imperial Total' },
 ];
 
 const premiumFeatures = [
-    'Tarjeta fabricada en metal con diseño exclusivo',
-    'Acceso a eventos y experiencias por invitación',
-    'Gerente de relación personal asignado',
-    'Línea directa prioritaria sin tiempos de espera',
+    'Enfoque patrimonial para clientes con alta relación bancaria',
+    'Máxima personalización financiera y atención prioritaria',
+    'Rendimientos reales por encima de la inflación',
+    'Experiencia diseñada para seniors con trayectoria profesional',
 ];
 
 export default function SpecsImperial() {

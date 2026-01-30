@@ -25,47 +25,47 @@ const fiveWsData = [
     {
         icon: HelpCircle,
         title: 'WHAT',
-        text: 'El sistema de tarjetas se compone de tres niveles – Básica, Control y Preferente – diseñados para responder a distintas necesidades financieras. La identidad visual se mantiene unificada, mientras que los acabados y detalles permiten distinguir cada nivel de manera clara y jerárquica.'
+        text: 'Portafolio de tarjetas Mastercard – Básica, Control e Imperial. Un ecosistema único donde el crédito, la liquidez y el rendimiento trabajan de manera conjunta para el cliente senior.'
     },
     {
         icon: MapPin,
         title: 'WHERE',
-        text: 'Se integra en la vida cotidiana del usuario como una herramienta de uso diario, presente en comercios, cajeros automáticos y puntos de pago. Su diseño está pensado para ser fácilmente reconocible y funcional en cualquier contexto.'
+        text: 'Integración total a la banca digital Imperial Bank. El capital genera rendimientos por encima de la inflación sobre el saldo disponible, con disposición de dinero 24/7 los 365 días del año.'
     },
     {
         icon: Users,
         title: 'WHO',
-        text: 'Está dirigido a personas de 50 años en adelante, con distintos hábitos de consumo y niveles de uso financiero, que buscan opciones claras, seguras y confiables adaptadas a su estilo de vida.'
+        text: 'Diseñado para seniors y personas mayores de 50 años con amplia experiencia en su trabajo, que buscan consolidar su patrimonio mientras mantienen liquidez inmediata y acceso inteligente al crédito.'
     },
     {
         icon: Clock,
         title: 'WHEN',
-        text: 'Acompaña al usuario en diferentes momentos de su vida financiera, permitiendo avanzar de un nivel a otro conforme cambian sus necesidades y el uso de los servicios bancarios.'
+        text: 'Apertura de cuenta desde $100 MXN. El modelo híbrido permite que el rendimiento activo compense parcialmente el costo financiero, ofreciendo valor real mientras se usa el crédito.'
     },
     {
         icon: Target,
         title: 'WHY',
-        text: 'El sistema se crea para ofrecer una experiencia clara y progresiva, donde cada tarjeta representa un nivel de servicio distinto, reforzando la confianza, la tranquilidad y la percepción de respaldo institucional.'
+        text: 'Ofrecer los CAT más competitivos del mercado mexicano (desde 24.9% en Imperial), combinando la seguridad de un capital productivo con los beneficios de una tarjeta premium sin anualidad.'
     }
 ];
 
 // FODA Data
 const fodaData = [
     {
-        title: 'FORTALEZAS',
-        items: ['No cobra anualidad.', 'Límite de crédito bajo.']
+        title: 'BÁSICA (CAT 39.8%)',
+        items: ['Sin anualidad.', 'Acceso desde $100 MXN.', 'Dinero siempre disponible.', 'Rendimiento activo al usar capital.']
     },
     {
-        title: 'OPORTUNIDADES',
-        items: ['Ideal para personas que inician su historial crediticio.', 'Puede adaptarse a estudiantes o personas con ingresos limitados.']
+        title: 'CONTROL (CAT 32.5%)',
+        items: ['Sin anualidad condicionada.', 'Rendimiento preferencial con 2 usos mensuales.', 'Línea de crédito ajustable.', 'Menor impacto financiero real.']
     },
     {
-        title: 'DEBILIDADES',
-        items: ['Uso limitado para compras grandes.', 'Menor atractivo para clientes con mayor capacidad financiera.']
+        title: 'IMPERIAL (CAT 24.9%)',
+        items: ['Hasta 17% de rendimiento anual.', 'Línea de crédito elevada.', 'Atención prioritaria y personalizada.', 'Uno de los CAT más competitivos en México.']
     },
     {
-        title: 'AMENAZAS',
-        items: ['Competencia de otras tarjetas sin anualidad con más beneficios.', 'Percepción negativa del límite bajo.']
+        title: 'SISTEMA MASTERCARD',
+        items: ['Diseño para Seniors (50+).', 'Rendimientos reales superiores a inflación.', 'Seguridad patrimonial y liquidez 24/7.', 'Ecosistema bancario único.']
     }
 ];
 

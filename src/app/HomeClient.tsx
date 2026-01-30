@@ -150,9 +150,9 @@ export default function HomeClient() {
                         variants={staggerContainer}
                     >
                         {[
-                            { icon: HelpCircle, title: 'WHAT', text: 'Solución financiera multicapa con identidad sobria y niveles diferenciados: Básica, Mediana y Deluxe.' },
+                            { icon: HelpCircle, title: 'WHAT', text: 'Solución financiera Mastercard multicapa con identidad sobria y niveles diferenciados: Básica, Control e Imperial.' },
                             { icon: MapPin, title: 'WHERE', text: 'Integración en el ecosistema diario: comercios físicos, red de cajeros y terminales digitales.' },
-                            { icon: Users, title: 'WHO', text: 'Enfoque senior (50+) buscando seguridad, simplicidad operativa y control total de activos.' },
+                            { icon: Users, title: 'WHO', text: 'Enfoque senior (50+) con experiencia laboral, buscando seguridad, simplicidad y control total.' },
                             { icon: Clock, title: 'WHEN', text: 'Operatividad 24/7 para acompañar cada momento financiero, desde lo cotidiano a lo estratégico.' },
                             { icon: Target, title: 'WHY', text: 'Generar un entorno de confianza absoluta a través de la transparencia y adaptabilidad.' }
                         ].map((item, idx) => (

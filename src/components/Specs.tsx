@@ -9,24 +9,24 @@ interface Spec {
 
 const specs: Spec[] = [
     { label: 'Tipo de tarjeta', value: 'Crédito' },
-    { label: 'Anualidad', value: '$0 el primer año' },
+    { label: 'CAT promedio', value: '39.8% sin IVA' },
+    { label: 'Anualidad', value: '$0 de por vida' },
     { label: 'Tecnología', value: 'Chip EMV + Contactless' },
-    { label: 'Red de aceptación', value: 'Visa Internacional' },
+    { label: 'Red de aceptación', value: 'Mastercard Internacional' },
+    { label: 'Apertura de cuenta', value: 'Desde $100 MXN' },
+    { label: 'Rendimiento', value: 'Sobre saldo disponible' },
     { label: 'Alertas de compras', value: 'SMS, Email y App' },
     { label: 'Control de límites', value: 'Desde la aplicación' },
     { label: 'Bloqueo temporal', value: 'Disponible en la app' },
-    { label: 'Soporte al cliente', value: '24/7 con atención humana' },
+    { label: 'Soporte al cliente', value: '24/7 senior priority' },
     { label: 'Seguro de fraude', value: 'Incluido sin costo' },
-    { label: 'Reemplazo de tarjeta', value: 'Gratuito por robo o extravío' },
-    { label: 'Cobertura internacional', value: 'Disponible en 200+ países' },
-    { label: 'Requisitos', value: 'Mayor de edad, identificación vigente' },
 ];
 
 const seniorFeatures = [
+    'Atención personalizada para perfiles con amplia experiencia laboral',
     'Números grandes y legibles en la tarjeta física',
     'Estado de cuenta con tipografía clara y sin jerga bancaria',
     'Atención telefónica con operadores capacitados en trato senior',
-    'Ayuda presencial disponible en cualquier sucursal',
 ];
 
 export default function Specs() {

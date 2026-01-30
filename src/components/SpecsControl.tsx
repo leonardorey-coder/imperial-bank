@@ -8,25 +8,24 @@ interface Spec {
 }
 
 const specs: Spec[] = [
-    { label: 'Tipo de tarjeta', value: 'Débito / Ahorro' },
-    { label: 'Rendimiento anual', value: '17% GAT Real' },
+    { label: 'Tipo de tarjeta', value: 'Crédito Intermedio' },
+    { label: 'CAT promedio', value: '32.5% sin IVA' },
+    { label: 'Anualidad', value: '$0 (condicionada al uso)' },
+    { label: 'Rendimiento anual', value: 'Preferencial ligado al uso' },
+    { label: 'Uso mensual', value: '2 usos para activar beneficios' },
     { label: 'Respaldo', value: 'IPAB hasta 400,000 UDIs' },
     { label: 'Tecnología', value: 'Chip EMV + Contactless' },
     { label: 'Red de aceptación', value: 'Mastercard Internacional' },
-    { label: 'Alertas de movimientos', value: 'SMS, Email y App' },
-    { label: 'Bloqueo temporal', value: 'Disponible en la app' },
-    { label: 'Soporte al cliente', value: '24/7 con atención humana' },
+    { label: 'Liquidez', value: 'Dinero líquido 24/7' },
+    { label: 'Soporte al cliente', value: '24/7 senior priority' },
     { label: 'Seguro de fraude', value: 'Incluido sin costo' },
-    { label: 'Reemplazo de tarjeta', value: 'Gratuito por robo o extravío' },
-    { label: 'Retiros en cajero', value: '4 retiros gratis al mes' },
-    { label: 'Requisitos', value: 'Mayor de edad, identificación vigente' },
 ];
 
 const savingsFeatures = [
-    'Rendimientos calculados diariamente y pagados mensualmente',
-    'Sin monto mínimo de apertura ni saldo mínimo mensual',
-    'Transparencia total: sin comisiones ocultas',
-    'Acceso inmediato a tu dinero en cualquier momento',
+    'Rendimiento constante por encima de la inflación',
+    'Dinero líquido en todo momento, sin plazos forzosos',
+    'Ideal para consolidar historial con beneficios ampliados',
+    'Atención prioritaria para seniors con experiencia',
 ];
 
 export default function SpecsControl() {
