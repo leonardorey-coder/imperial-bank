@@ -3,6 +3,7 @@ import { Inter, PT_Serif, Arapey } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -52,7 +53,9 @@ export default function RootLayout({
       <body className={`${inter.variable} ${ptSerif.variable} ${arapey.variable} antialiased font-sans`}>
         <SmoothScroll>
           <Header />
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </SmoothScroll>
       </body>
     </html>

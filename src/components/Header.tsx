@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
 
 export default function Header() {
     return (
@@ -12,7 +11,7 @@ export default function Header() {
             {/* Content */}
             <div className="relative flex items-center justify-between px-4 py-2 md:px-6 md:py-4 max-w-7xl mx-auto">
                 {/* Brand section */}
-                <Link href="/" className="flex items-center gap-3 md:gap-4 hover:opacity-90 transition-opacity">
+                <Link href="/" scroll={false} className="flex items-center gap-3 md:gap-4 hover:opacity-90 transition-opacity">
                     {/* Logo */}
                     <img
                         src="/logotipo.png"
@@ -36,31 +35,31 @@ export default function Header() {
                 <div className="flex items-center gap-6">
                     <Link
                         href="/tarjetas"
+                        scroll={false}
                         className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors group"
                     >
                         <span className="text-xs md:text-sm font-medium tracking-wide">Tarjetas</span>
-
                     </Link>
                     <Link
                         href="/tarjeta-basica"
+                        scroll={false}
                         className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors group"
                     >
                         <span className="text-xs md:text-sm font-medium tracking-wide">Imperial Básica</span>
-
                     </Link>
                     <Link
                         href="/tarjeta-control"
+                        scroll={false}
                         className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors group"
                     >
                         <span className="text-xs md:text-sm font-medium tracking-wide">Tarjeta Control</span>
-
                     </Link>
                     <Link
                         href="/tarjeta-imperial"
+                        scroll={false}
                         className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors group"
                     >
                         <span className="text-xs md:text-sm font-medium tracking-wide">Tarjeta Imperial</span>
-
                     </Link>
                 </div>
             </div>
