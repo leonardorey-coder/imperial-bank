@@ -33,13 +33,22 @@ export default function Header() {
                 </Link>
 
                 {/* Navigation */}
-                <Link
-                    href="/tarjeta-basica"
-                    className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors group"
-                >
-                    <span className="text-xs md:text-sm font-medium tracking-wide">Tarjeta Básica</span>
-                    <ChevronRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-                </Link>
+                <div className="flex items-center gap-6">
+                    <Link
+                        href="/tarjetas"
+                        className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors group"
+                    >
+                        <span className="text-xs md:text-sm font-medium tracking-wide">Tarjetas</span>
+                        <ChevronRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    </Link>
+                    <Link
+                        href="/tarjeta-basica"
+                        className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors group"
+                    >
+                        <span className="text-xs md:text-sm font-medium tracking-wide">Imperial Básica</span>
+                        <ChevronRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    </Link>
+                </div>
             </div>
         </header>
     );
